@@ -7,6 +7,7 @@
 
 {% block body %}
 
+	{# NavBar #}
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand" href="#">Car App Dealer !
 		</a>
@@ -31,13 +32,13 @@
 	</nav>
 
 
-	<p>La température actuelle est : {{ currentTemperature }}°C</p>
+	<p>La température actuelle est de : {{ currentTemperature }}°C</p>
 
-
+	{# Section Body #}
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 mt-5">
 			<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-
+				<!-- Itération de chaque Car en BDD, permet de créer une Card contenant les informations nbSeat, nbDoor, name et le cost -->
 				{% for car in pagination %}
 					<div class="col mb-5">
 						<div class="card h-100">
@@ -62,7 +63,7 @@
 							<!-- Product actions-->
 							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
 								<div class="text-center">
-									<a class="btn btn-outline-dark mt-auto" href="#">Achat</a>
+									<a class="btn btn-outline-dark mt-auto" href="#">Buy this car</a>
 								</div>
 							</div>
 						</div>
@@ -70,6 +71,7 @@
 				{% endfor %}
 
 			</div>
+			<!-- Ajout des numéros de page -->
 			<div class="d-flex justify-content-center">
 				{{ knp_pagination_render(pagination) }}
 			</div>
